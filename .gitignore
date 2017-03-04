@@ -19,3 +19,12 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore .swpfiles
+doc/
+.*.swp
+*~
+.project
+.DS_Store
+.idea
+.secret

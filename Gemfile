@@ -29,6 +29,10 @@ gem 'jbuilder', '2.4.1'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'oauth2'
+gem 'oauth'
+gem 'activerecord-session_store'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '9.0.0'

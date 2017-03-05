@@ -10,5 +10,14 @@
 
   <body>
     <%= yield %>
+	<div>
+	  <ol>
+	  <%= @tweets.each do |tweet| %>
+	    <li>
+		<p><%= tweet["user"]["name"] - tweet["text"] : tweet["favorited"].to_s %></p>
+	    </li>
+	  <%= end %>
+	  </ol>
+	</div>
   </body>
 </html>

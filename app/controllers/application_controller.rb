@@ -21,10 +21,12 @@ class ApplicationController < ActionController::Base
     #prepare_access_token(params.query_values["oauth_token"], params.query_values["oauth_verifier"])
     token = prepare_access_token
 	response = token.request(:get, "https://api.twitter.com/1.1/statuses/home_timeline.json")
-	@tweets = JSON.parse(response.body)
+	#@tweets = JSON.parse(response.body)
+	session[:tweets] = JSON.parse(response.body)
 	#render_tweet = "<p>#{tweet["user"]["name"]} - #{tweet["text"]} : #{tweet["favorited"].to_s}</p><br>"
 	#tweets.each do |tweet|
-	#render html: "<p>#{@tweets[1]["user"]["name"]} - #{@tweets[1]["text"]} : #{@tweets[1]["favorited"].to_s}</p><br>".html_safe
+	#render html: "<p>#{tweets[1]["user"]["name"]} - #{@tweets[1]["text"]} : #{tweets[1]["favorited"].to_s}</p><br>".html_safe
 	#end
+	redirect_to "/app/show"
   end
 end

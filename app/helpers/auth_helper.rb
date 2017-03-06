@@ -17,23 +17,12 @@ module AuthHelper
 	#redirect_to request_token.authorize_url(:oauth_callback => REDIRECT_URI)
   end
 
-<<<<<<< HEAD
-  def prepare_access_token(oauth_verifier)
-=======
-  #def prepare_access_token(oauth_token, oauth_verifier)
   def prepare_access_token
->>>>>>> receive-tweet
 	client = OAuth::Consumer.new(CLIENT_ID,
 								 CLIENT_SECRET,
 								 {:site => "https://api.twitter.com",
 								  :authorize_path => "/oauth/authorize",
 								  :access_token_path => "/oauth/access_token"})
-<<<<<<< HEAD
-	access_token = client.get_access_token({:oauth_callback => REDIRECT_URI})
-	token_hash = { :oauth_token => access_token.token, :oauth_token_secret => access_token.secret }
-	request_token = OAuth::RequestToken.from_hash(client, token_hash)
-	return request_token
-=======
 	request_token = OAuth::RequestToken.new(client, session[:request_token], session[:request_token_secret])
 	session[:oauth_verifier] = params['oauth_verifier']
 	#access_token = client.get_access_token(oauth_token, { :oauth_verifier => oauth_verifier })
@@ -43,6 +32,5 @@ module AuthHelper
 	token_hash = { :oauth_token => session[:access_token].token, :oauth_token_secret => session[:access_token].secret }
 	access_token = OAuth::AccessToken.from_hash(client, token_hash)
 	return access_token
->>>>>>> receive-tweet
   end
 end

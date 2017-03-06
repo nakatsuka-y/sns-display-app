@@ -1,0 +1,17 @@
+<h1>App#show</h1>
+<div>
+  <ol>
+  <% @tweets.each do |tweet| %>
+    <li>
+	  <p>
+	  <%= "#{tweet["user"]["name"]} - #{tweet["text"]} : #{tweet["favorited"].to_s}" %>
+	  </p>
+	  <% unless tweet["entities"]["media"] == nil %>
+	  <p>
+	    <img src="<%= "#{tweet["entities"]["media"][0]["media_url"]}" %>" />
+	  </p>
+	  <% end %>
+    </li>
+  <% end %>
+  </ol>
+</div>

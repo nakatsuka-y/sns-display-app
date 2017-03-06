@@ -32,6 +32,10 @@ gem 'jbuilder', '2.4.1'
 gem 'oauth2'
 gem 'oauth'
 gem 'activerecord-session_store'
+<<<<<<< HEAD
+=======
+gem 'addressable'
+>>>>>>> receive-tweet
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

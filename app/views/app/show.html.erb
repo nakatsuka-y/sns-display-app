@@ -4,7 +4,10 @@
   <% @tweets.each do |tweet| %>
     <li>
 	  <p>
-	  <%= "#{tweet["user"]["name"]} - #{tweet["text"]} : #{tweet["favorited"].to_s}" %>
+	  <%= "#{tweet["user"]["name"]} - #{tweet["text"]}" %>
+	  </p>
+	  <p>
+	  <%= "#{tweet["favorited"].to_s}" %>
 	  </p>
 	  <% unless tweet["entities"]["media"] == nil %>
 	  <p>

@@ -22,7 +22,7 @@
 
 # Ignore .swpfiles
 doc/
-.*.swp
+.*.sw*
 *~
 .project
 .DS_Store

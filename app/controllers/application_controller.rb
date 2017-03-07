@@ -5,10 +5,10 @@ class ApplicationController < ActionController::Base
 
   include AuthHelper
 
-  def home
+  def twitter_login
     # Display twitter login link
-	login_url = twitter_get_login_url
-    render html: "<a href='#{login_url}'>Log in and view Twitter timeline</a>".html_safe
+	session[:login_url] = twitter_get_login_url
+	redirect_to "/app/login"
   end
 
   def twitter_authorize

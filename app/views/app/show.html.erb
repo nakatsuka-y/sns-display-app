@@ -1,25 +1,27 @@
-<h1>App#show</h1>
-<a href="/twitter_reload">Reload Timeline</a>
 <div>
-  <ol>
+  <ol class="tweets">
   <% @tweets.each do |tweet| %>
     <li>
-	  <p>
-	  <%= "#{tweet["user"]["name"]} - #{tweet["text"]}" %>
-	  </p>
-	  <p>
+	  <span class="favorite">
 	    <% if tweet["favorited"] == false %>
 	      <a href='/twitter_like?id=<%= "#{tweet["id_str"]}" %>'>
+		    &#9825
 		<% elsif tweet["favorited"] == true %>
 	      <a href='/twitter_unlike?id=<%= "#{tweet["id_str"]}" %>'>
+		    &#9829
 		<% end %>
-	        <%= "#{tweet["favorited"]}" %>
 		  </a>
-	  </p>
+	  </span>
+	  <span class="user">
+	  <%= "#{tweet["user"]["name"]}" %>
+	  </span>
+	  <span class="text">
+	  <%= "#{tweet["text"]}" %>
+	  </span>
 	  <% unless tweet["entities"]["media"] == nil %>
-	  <p>
+	  <span class="photo">
 	      <img src="<%= "#{tweet["entities"]["media"][0]["media_url"]}" %>" />
-	  </p>
+	  </span>
 	  <% end %>
     </li>
   <% end %>

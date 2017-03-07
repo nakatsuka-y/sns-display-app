@@ -25,8 +25,6 @@ module AuthHelper
 	request_token = OAuth::RequestToken.new(client, session[:request_token], session[:request_token_secret])
 	session[:oauth_verifier] = params['oauth_verifier']
 	access_token = request_token.get_access_token(:oauth_verifier => session[:oauth_verifier])
-	#puts session[:access_token].token
-	#puts session[:access_token].secret
 	token_hash = { :oauth_token => access_token.token, :oauth_token_secret => access_token.secret }
 	session[:access_token] = OAuth::AccessToken.from_hash(client, token_hash)
   end

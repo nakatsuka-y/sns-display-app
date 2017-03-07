@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ApiApp</title>
+    <title>SNS Display App</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+	  <div class="container">
+	    <a href="#" id="logo">SNS Display App</a>
+	    <nav>
+		  <ul class="nav navbar-nav navbar-right">
+		    <li><a href="/twitter_reload">Reload Timeline</a></li>
+	      </ul>
+	    </nav>
+	  </div>
+	</header>
+	<div class="container">
+      <%= yield %>
+	</div>
   </body>
 </html>

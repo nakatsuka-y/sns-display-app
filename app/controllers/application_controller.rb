@@ -17,4 +17,10 @@ class ApplicationController < ActionController::Base
 	session[:tweets] = JSON.parse(response.body)
 	redirect_to "/app/show"
   end
+
+  def twitter_reload
+	response = session[:access_token].request(:get, "https://api.twitter.com/1.1/statuses/home_timeline.json")
+	session[:tweets] = JSON.parse(response.body)
+	redirect_to "/app/show"
+  end
 end

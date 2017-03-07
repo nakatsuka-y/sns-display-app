@@ -1,4 +1,4 @@
-# SNS Dsplay App
+# SNS Display App
 ## Description
 This is a SNS Display App for the VASILY Intern assignment.
 Run the rails server by `rails s -b 127.0.0.1 -p 3000`.

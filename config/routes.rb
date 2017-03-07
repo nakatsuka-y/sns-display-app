@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/twitter_authorize', to: 'application#twitter_authorize'
   get '/twitter_reload', to: 'application#twitter_reload'
   get '/twitter_like', to: 'application#twitter_like'
+  get '/twitter_unlike', to: 'application#twitter_unlike'
 end

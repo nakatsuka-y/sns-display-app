@@ -31,4 +31,12 @@ class ApplicationController < ActionController::Base
 	session[:tweets] = JSON.parse(response.body)
 	redirect_to "/app/show"
   end
+
+  def twitter_unlike
+	id = params['id']
+	session[:access_token].request(:post, "https://api.twitter.com/1.1/favorites/destroy.json?id=#{id}")
+	response = session[:access_token].request(:get, "https://api.twitter.com/1.1/statuses/home_timeline.json")
+	session[:tweets] = JSON.parse(response.body)
+	redirect_to "/app/show"
+  end
 end

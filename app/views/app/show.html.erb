@@ -8,9 +8,13 @@
 	  <%= "#{tweet["user"]["name"]} - #{tweet["text"]}" %>
 	  </p>
 	  <p>
-	    <a href='/twitter_like?id=<%= "#{tweet["id_str"]}" %>'>
-	      <%= "#{tweet["favorited"]}" %>
-		</a>
+	    <% if tweet["favorited"] == false %>
+	      <a href='/twitter_like?id=<%= "#{tweet["id_str"]}" %>'>
+		<% elsif tweet["favorited"] == true %>
+	      <a href='/twitter_unlike?id=<%= "#{tweet["id_str"]}" %>'>
+		<% end %>
+	        <%= "#{tweet["favorited"]}" %>
+		  </a>
 	  </p>
 	  <% unless tweet["entities"]["media"] == nil %>
 	  <p>

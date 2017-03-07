@@ -1,5 +1,5 @@
 <h1>App#show</h1>
-<a href="/twitter_reload">Reload page</a>
+<a href="/twitter_reload">Reload Timeline</a>
 <div>
   <ol>
   <% @tweets.each do |tweet| %>
@@ -8,11 +8,13 @@
 	  <%= "#{tweet["user"]["name"]} - #{tweet["text"]}" %>
 	  </p>
 	  <p>
-	  <%= "#{tweet["favorited"]}" %>
+	    <a href='/twitter_like?id=<%= "#{tweet["id_str"]}" %>'>
+	      <%= "#{tweet["favorited"]}" %>
+		</a>
 	  </p>
 	  <% unless tweet["entities"]["media"] == nil %>
 	  <p>
-	    <img src="<%= "#{tweet["entities"]["media"][0]["media_url"]}" %>" />
+	      <img src="<%= "#{tweet["entities"]["media"][0]["media_url"]}" %>" />
 	  </p>
 	  <% end %>
     </li>
